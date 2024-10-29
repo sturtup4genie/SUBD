@@ -15,24 +15,24 @@ int main()
     {
         double radius;
 
-        std::cout << "Ââåäèòå ğàäèóñ øàğà: ";
+        std::cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ€Ğ°Ğ´Ğ¸ÑƒÑ ÑˆĞ°Ñ€Ğ°: ";
         std::cin >> radius;
 
         Sphere first(radius);
 
-        std::cout << "Ââåäåííûé ğàäèóñ: " << first.GetRadius() << "\n";
-        std::cout << "Äèàìåòğ øàğà: " << first.GetDiameter() << "\n";
-        std::cout << "Ïëîùàäü ïîâåğõíîñòè øàğà: " << first.GetSurfaceArea() << "\n";
-        std::cout << "Îáúåì øàğà: " << first.GetVolume() << "\n";
+        std::cout << "Ğ’Ğ²ĞµĞ´ĞµĞ½Ğ½Ñ‹Ğ¹ Ñ€Ğ°Ğ´Ğ¸ÑƒÑ: " << first.GetRadius() << "\n";
+        std::cout << "Ğ”Ğ¸Ğ°Ğ¼ĞµÑ‚Ñ€ ÑˆĞ°Ñ€Ğ°: " << first.GetDiameter() << "\n";
+        std::cout << "ĞŸĞ»Ğ¾Ñ‰Ğ°Ğ´ÑŒ Ğ¿Ğ¾Ğ²ĞµÑ€Ñ…Ğ½Ğ¾ÑÑ‚Ğ¸ ÑˆĞ°Ñ€Ğ°: " << first.GetSurfaceArea() << "\n";
+        std::cout << "ĞĞ±ÑŠĞµĞ¼ ÑˆĞ°Ñ€Ğ°: " << first.GetVolume() << "\n";
 
-        std::cout << "\n Äåìîíñòğàöèÿ ïåğåãğóçêè îïåğàòîğà âûâîäà â ïîòîê:\n";
+        std::cout << "\n Ğ”ĞµĞ¼Ğ¾Ğ½ÑÑ‚Ñ€Ğ°Ñ†Ğ¸Ñ Ğ¿ĞµÑ€ĞµĞ³Ñ€ÑƒĞ·ĞºĞ¸ Ğ¾Ğ¿ĞµÑ€Ğ°Ñ‚Ğ¾Ñ€Ğ° Ğ²Ñ‹Ğ²Ğ¾Ğ´Ğ° Ğ² Ğ¿Ğ¾Ñ‚Ğ¾Ğº:\n";
         std::cout << first << "\n";
 
         return 0;
     }
     catch (const std::exception& error)
     {
-        std::cout << "ÎØÈÁÊÀ: " << error.what() << "\n";
+        std::cout << "ĞĞ¨Ğ˜Ğ‘ĞšĞ: " << error.what() << "\n";
     }
 
     return -1;
