@@ -88,10 +88,10 @@ namespace UnitTest
             sphere::Sphere obj{ R };
             std::stringstream buffer{};
             const std::string expected =
-                "Радиус шара: " + std::to_string(obj.GetRadius()) + "\n" +
-                "Диаметр шара: " + std::to_string(obj.GetDiameter()) + "\n" +
-                "Площадь поверхности шара: " + std::to_string(obj.GetSurfaceArea()) + "\n" +
-                "Объем шара: " + std::to_string(obj.GetVolume()) + "\n";
+                "Р Р°РґРёСѓСЃ С€Р°СЂР°: " + std::to_string(obj.GetRadius()) + "\n" +
+                "Р”РёР°РјРµС‚СЂ С€Р°СЂР°: " + std::to_string(obj.GetDiameter()) + "\n" +
+                "РџР»РѕС‰Р°РґСЊ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё С€Р°СЂР°: " + std::to_string(obj.GetSurfaceArea()) + "\n" +
+                "РћР±СЉРµРј С€Р°СЂР°: " + std::to_string(obj.GetVolume()) + "\n";
 
             // Act
             buffer << std::fixed << obj;
