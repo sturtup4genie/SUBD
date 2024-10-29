@@ -29,17 +29,17 @@ sphere::Sphere::Sphere(const double radius)
 {
     if (radius <= 0)
     {
-        throw std::invalid_argument("Ğàäèóñ äîëæåí áûòü ïîëîæèòåëüíûì ÷èñëîì.");
+        throw std::invalid_argument("Ğ Ğ°Ğ´Ğ¸ÑƒÑ Ğ´Ğ¾Ğ»Ğ¶ĞµĞ½ Ğ±Ñ‹Ñ‚ÑŒ Ğ¿Ğ¾Ğ»Ğ¾Ğ¶Ğ¸Ñ‚ĞµĞ»ÑŒĞ½Ñ‹Ğ¼ Ñ‡Ğ¸ÑĞ»Ğ¾Ğ¼.");
     }
     this->radius = radius;
 }
 
 std::ostream& sphere::operator<<(std::ostream& output, const Sphere& object)
 {
-    output << "Ğàäèóñ øàğà: " << object.GetRadius() << "\n";
-    output << "Äèàìåòğ øàğà: " << object.GetDiameter() << "\n";
-    output << "Ïëîùàäü ïîâåğõíîñòè øàğà: " << object.GetSurfaceArea() << "\n";
-    output << "Îáúåì øàğà: " << object.GetVolume() << "\n";
+    output << "Ğ Ğ°Ğ´Ğ¸ÑƒÑ ÑˆĞ°Ñ€Ğ°: " << object.GetRadius() << "\n";
+    output << "Ğ”Ğ¸Ğ°Ğ¼ĞµÑ‚Ñ€ ÑˆĞ°Ñ€Ğ°: " << object.GetDiameter() << "\n";
+    output << "ĞŸĞ»Ğ¾Ñ‰Ğ°Ğ´ÑŒ Ğ¿Ğ¾Ğ²ĞµÑ€Ñ…Ğ½Ğ¾ÑÑ‚Ğ¸ ÑˆĞ°Ñ€Ğ°: " << object.GetSurfaceArea() << "\n";
+    output << "ĞĞ±ÑŠĞµĞ¼ ÑˆĞ°Ñ€Ğ°: " << object.GetVolume() << "\n";
 
     return output;
 }
