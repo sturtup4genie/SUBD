@@ -4,17 +4,17 @@
 #include "Vector.h"
 
 int main() {
-    // Пример использования шаблонного класса Vector с типом int
+    // РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С€Р°Р±Р»РѕРЅРЅРѕРіРѕ РєР»Р°СЃСЃР° Vector СЃ С‚РёРїРѕРј int
     Vector<int> intVector;
 
-    // Добавление элементов в вектор
+    // Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РІ РІРµРєС‚РѕСЂ
     intVector.add(1);
     intVector.add(2);
     intVector.add(3);
 
     std::cout << "Vector intVector after add elements: " << intVector << "\n";
 
-    // Получение элемента по индексу
+    // РџРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
     try {
         int value = intVector.get(1);
         std::cout << "Element with index 1: " << value << "\n";
@@ -23,29 +23,29 @@ int main() {
         std::cerr << e.what() << "\n";
     }
 
-    // Обновление элемента по индексу
+    // РћР±РЅРѕРІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
     intVector.update(1, 20);
     std::cout << "Vector intVector after update element with index 1: " << intVector << "\n";
 
-    // Удаление элемента
+    // РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
     intVector.remove(1);
     std::cout << "Vector intVector after delete element with index 1: " << intVector << "\n";
 
-    // Использование итератора для прохода по элементам вектора
+    // РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РёС‚РµСЂР°С‚РѕСЂР° РґР»СЏ РїСЂРѕС…РѕРґР° РїРѕ СЌР»РµРјРµРЅС‚Р°Рј РІРµРєС‚РѕСЂР°
     std::cout << "Elements intVector with using iterator: ";
     for (auto it = intVector.begin(); it != intVector.end(); ++it) {
         std::cout << *it << " ";
     }
     std::cout << "\n";
 
-    // Пример использования Vector с типом double
+    // РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ Vector СЃ С‚РёРїРѕРј double
     Vector<double> doubleVector;
     doubleVector.add(1.1);
     doubleVector.add(2.2);
     doubleVector.add(3.3);
     std::cout << "Vector doubleVector: " << doubleVector << "\n";
 
-    // Пример использования ввода элементов через поток
+    // РџСЂРёРјРµСЂ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІРІРѕРґР° СЌР»РµРјРµРЅС‚РѕРІ С‡РµСЂРµР· РїРѕС‚РѕРє
     std::cout << "Enter value for intVector separated by a space (complete the input with any character): ";
     std::cin >> intVector;
     std::cout << "intVector after entering from the stream: " << intVector << "\n";
