@@ -10,23 +10,23 @@
 template <typename T>
 class Vector {
 private:
-    T* data;            // óêàçàòåëü íà ìàññèâ ýëåìåíòîâ
-    size_t size;        // òåêóùåå êîëè÷åñòâî ýëåìåíòîâ
-    size_t capacity;    // âìåñòèìîñòü ìàññèâà
+    T* data;            // ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð½Ð° Ð¼Ð°ÑÑÐ¸Ð² ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²
+    size_t size;        // Ñ‚ÐµÐºÑƒÑ‰ÐµÐµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²
+    size_t capacity;    // Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð²Ð°
 
 public:
-    // Êîíñòðóêòîð
+    // ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
     Vector(size_t init_capacity = 10)
         : size(0), capacity(init_capacity) {
         data = new T[capacity];
     }
 
-    // Äåñòðóêòîð
+    // Ð”ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
     ~Vector() {
         delete[] data;
     }
 
-    // Ìåòîä äîáàâëåíèÿ ýëåìåíòà (Create)
+    // ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° (Create)
     void add(const T& value) {
         if (size == capacity) {
             resize();
@@ -34,19 +34,19 @@ public:
         data[size++] = value;
     }
 
-    // Ìåòîä ïîëó÷åíèÿ ýëåìåíòà (Read)
+    // ÐœÐµÑ‚Ð¾Ð´ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° (Read)
     T get(size_t index) const {
         if (index >= size) throw std::out_of_range("Index out of range");
         return data[index];
     }
 
-    // Ìåòîä ìîäèôèêàöèè ýëåìåíòà (Update)
+    // ÐœÐµÑ‚Ð¾Ð´ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° (Update)
     void update(size_t index, const T& value) {
         if (index >= size) throw std::out_of_range("Index out of range");
         data[index] = value;
     }
 
-    // Ìåòîä óäàëåíèÿ ýëåìåíòà (Delete)
+    // ÐœÐµÑ‚Ð¾Ð´ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° (Delete)
     void remove(size_t index) {
         if (index >= size) throw std::out_of_range("Index out of range");
         for (size_t i = index; i < size - 1; ++i) {
@@ -55,7 +55,7 @@ public:
         --size;
     }
 
-    // Âûâîä ñîäåðæèìîãî â ñòðîêó
+    // Ð’Ñ‹Ð²Ð¾Ð´ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð³Ð¾ Ð² ÑÑ‚Ñ€Ð¾ÐºÑƒ
     std::string toString() const {
         std::ostringstream oss;
         for (size_t i = 0; i < size; ++i) {
@@ -64,7 +64,7 @@ public:
         return oss.str();
     }
 
-    // Èòåðàòîð
+    // Ð˜Ñ‚ÐµÑ€Ð°Ñ‚Ð¾Ñ€
     class Iterator {
     private:
         T* ptr;
@@ -78,7 +78,7 @@ public:
     Iterator begin() { return Iterator(data); }
     Iterator end() { return Iterator(data + size); }
 
-    // Ïåðåîïðåäåëåíèå îïåðàòîðîâ ñäâèãà äëÿ ïîòîêîâîãî ââîäà/âûâîäà
+    // ÐŸÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð² ÑÐ´Ð²Ð¸Ð³Ð° Ð´Ð»Ñ Ð¿Ð¾Ñ‚Ð¾ÐºÐ¾Ð²Ð¾Ð³Ð¾ Ð²Ð²Ð¾Ð´Ð°/Ð²Ñ‹Ð²Ð¾Ð´Ð°
     friend std::ostream& operator<<(std::ostream& os, const Vector<T>& vec) {
         for (size_t i = 0; i < vec.size; ++i) {
             os << vec.data[i] << " ";
@@ -95,7 +95,7 @@ public:
     }
 
 private:
-    // Ïðèâàòíûé ìåòîä äëÿ óâåëè÷åíèÿ âìåñòèìîñòè ìàññèâà
+    // ÐŸÑ€Ð¸Ð²Ð°Ñ‚Ð½Ñ‹Ð¹ Ð¼ÐµÑ‚Ð¾Ð´ Ð´Ð»Ñ ÑƒÐ²ÐµÐ»Ð¸Ñ‡ÐµÐ½Ð¸Ñ Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¼Ð°ÑÑÐ¸Ð²Ð°
     void resize() {
         capacity *= 2;
         T* new_data = new T[capacity];
