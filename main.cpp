@@ -3,52 +3,56 @@
 #include <iostream>
 #include "Vector.h"
 
+/**
+ * @brief Точка входа в программу.
+ * Демонстрирует работу с классом Vector для хранения целых чисел.
+ * 
+ * @return int Код завершения программы.
+ */
 int main() {
-    // Пример использования шаблонного класса Vector с типом int
-    Vector<int> intVector;
+    setlocale(LC_ALL, "Russian"); // Для корректного отображения русского текста
 
-    // Добавление элементов в вектор
+    /**
+     * @brief Создание объекта Vector для хранения элементов типа int.
+     */
+    Vector intVector;
+
+    /**
+     * @brief Добавление элементов в вектор.
+     */
     intVector.add(1);
     intVector.add(2);
     intVector.add(3);
+    std::cout << "Вектор intVector после добавления элементов: " << intVector << "\n";
 
-    std::cout << "Vector intVector after add elements: " << intVector << "\n";
-
-    // Получение элемента по индексу
+    /**
+     * @brief Получение элемента по индексу.
+     */
     try {
         int value = intVector.get(1);
-        std::cout << "Element with index 1: " << value << "\n";
-    }
-    catch (const std::out_of_range& e) {
+        std::cout << "Элемент с индексом 1: " << value << "\n";
+    } catch (const std::out_of_range& e) {
         std::cerr << e.what() << "\n";
     }
 
-    // Обновление элемента по индексу
+    /**
+     * @brief Обновление элемента по указанному индексу.
+     */
     intVector.update(1, 20);
-    std::cout << "Vector intVector after update element with index 1: " << intVector << "\n";
+    std::cout << "Вектор intVector после обновления элемента с индексом 1: " << intVector << "\n";
 
-    // Удаление элемента
+    /**
+     * @brief Удаление элемента по указанному индексу.
+     */
     intVector.remove(1);
-    std::cout << "Vector intVector after delete element with index 1: " << intVector << "\n";
+    std::cout << "Вектор intVector после удаления элемента с индексом 1: " << intVector << "\n";
 
-    // Использование итератора для прохода по элементам вектора
-    std::cout << "Elements intVector with using iterator: ";
-    for (auto it = intVector.begin(); it != intVector.end(); ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << "\n";
-
-    // Пример использования Vector с типом double
-    Vector<double> doubleVector;
-    doubleVector.add(1.1);
-    doubleVector.add(2.2);
-    doubleVector.add(3.3);
-    std::cout << "Vector doubleVector: " << doubleVector << "\n";
-
-    // Пример использования ввода элементов через поток
-    std::cout << "Enter value for intVector separated by a space (complete the input with any character): ";
+    /**
+     * @brief Пример ввода элементов в вектор через поток.
+     */
+    std::cout << "Введите значения для intVector через пробел (завершите ввод любым символом): ";
     std::cin >> intVector;
-    std::cout << "intVector after entering from the stream: " << intVector << "\n";
+    std::cout << "intVector после ввода из потока: " << intVector << "\n";
 
     return 0;
 }
