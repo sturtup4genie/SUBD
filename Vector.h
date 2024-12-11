@@ -7,46 +7,71 @@
 #include <stdexcept>
 #include <sstream>
 
-template <typename T>
+/**
+ * @brief Cтруктура данных для хранения элементов типа int.
+ */
 class Vector {
 private:
-    T* data;            // указатель на массив элементов
-    size_t size;        // текущее количество элементов
-    size_t capacity;    // вместимость массива
+    int* data;          ///< Указатель на массив элементов
+    size_t size;        ///< Текущее количество элементов
+    size_t capacity;    ///< Вместимость массива
 
 public:
-    // Конструктор
+    /**
+     * @brief Конструктор вектора.
+     * @param init_capacity Начальная вместимость массива (по умолчанию 10).
+     */
     Vector(size_t init_capacity = 10)
         : size(0), capacity(init_capacity) {
-        data = new T[capacity];
+        data = new int[capacity];
     }
 
-    // Деструктор
+    /**
+     * @brief Деструктор вектора.
+     * Освобождает память, выделенную под массив.
+     */
     ~Vector() {
         delete[] data;
     }
 
-    // Метод добавления элемента (Create)
-    void add(const T& value) {
+    /**
+     * @brief Добавляет элемент в конец вектора.
+     * @param value Значение, которое нужно добавить.
+     */
+    void add(int value) {
         if (size == capacity) {
             resize();
         }
         data[size++] = value;
     }
 
-    // Метод получения элемента (Read)
-    T get(size_t index) const {
+    /**
+     * @brief Получает элемент по индексу.
+     * @param index Индекс элемента.
+     * @return Значение элемента с указанным индексом.
+     * @throws std::out_of_range Если индекс выходит за пределы массива.
+     */
+    int get(size_t index) const {
         if (index >= size) throw std::out_of_range("Index out of range");
         return data[index];
     }
 
-    // Метод модификации элемента (Update)
-    void update(size_t index, const T& value) {
+    /**
+     * @brief Обновляет элемент по указанному индексу.
+     * @param index Индекс элемента.
+     * @param value Новое значение элемента.
+     * @throws std::out_of_range Если индекс выходит за пределы массива.
+     */
+    void update(size_t index, int value) {
         if (index >= size) throw std::out_of_range("Index out of range");
         data[index] = value;
     }
 
-    // Метод удаления элемента (Delete)
+    /**
+     * @brief Удаляет элемент по указанному индексу.
+     * @param index Индекс элемента, который нужно удалить.
+     * @throws std::out_of_range Если индекс выходит за пределы массива.
+     */
     void remove(size_t index) {
         if (index >= size) throw std::out_of_range("Index out of range");
         for (size_t i = index; i < size - 1; ++i) {
@@ -55,7 +80,10 @@ public:
         --size;
     }
 
-    // Вывод содержимого в строку
+    /**
+     * @brief Преобразует содержимое вектора в строку.
+     * @return Строковое представление вектора.
+     */
     std::string toString() const {
         std::ostringstream oss;
         for (size_t i = 0; i < size; ++i) {
@@ -64,30 +92,25 @@ public:
         return oss.str();
     }
 
-    // Итератор
-    class Iterator {
-    private:
-        T* ptr;
-    public:
-        Iterator(T* ptr) : ptr(ptr) {}
-        Iterator operator++() { ++ptr; return *this; }
-        bool operator!=(const Iterator& other) const { return ptr != other.ptr; }
-        T& operator*() const { return *ptr; }
-    };
-
-    Iterator begin() { return Iterator(data); }
-    Iterator end() { return Iterator(data + size); }
-
-    // Переопределение операторов сдвига для потокового ввода/вывода
-    friend std::ostream& operator<<(std::ostream& os, const Vector<T>& vec) {
-        for (size_t i = 0; i < vec.size; ++i) {
-            os << vec.data[i] << " ";
-        }
+    /**
+     * @brief Переопределяет оператор вывода для вектора.
+     * @param os Поток вывода.
+     * @param vec Вектор, который нужно вывести.
+     * @return Поток вывода.
+     */
+    friend std::ostream& operator<<(std::ostream& os, const Vector& vec) {
+        os << vec.toString();
         return os;
     }
 
-    friend std::istream& operator>>(std::istream& is, Vector<T>& vec) {
-        T value;
+    /**
+     * @brief Переопределяет оператор ввода для вектора.
+     * @param is Поток ввода.
+     * @param vec Вектор, в который будут добавлены элементы.
+     * @return Поток ввода.
+     */
+    friend std::istream& operator>>(std::istream& is, Vector& vec) {
+        int value;
         while (is >> value) {
             vec.add(value);
         }
@@ -95,10 +118,12 @@ public:
     }
 
 private:
-    // Приватный метод для увеличения вместимости массива
+    /**
+     * @brief Увеличивает вместимость массива в два раза.
+     */
     void resize() {
         capacity *= 2;
-        T* new_data = new T[capacity];
+        int* new_data = new int[capacity];
         for (size_t i = 0; i < size; ++i) {
             new_data[i] = data[i];
         }
