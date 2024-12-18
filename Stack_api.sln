@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PQ_Demo", "PQ_Demo\PQ_Demo.vcxproj", "{F9A7B1FA-74B3-474A-B3AA-2BD8A0514D91}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack_demo", "Stack_demo\Stack_demo.vcxproj", "{F9A7B1FA-74B3-474A-B3AA-2BD8A0514D91}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PQ_API", "PQ_API\PQ_API.vcxproj", "{EFB40CC2-DD23-4440-B0E8-777C2D61B95C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack_api", "Stack_api\Stack_api.vcxproj", "{EFB40CC2-DD23-4440-B0E8-777C2D61B95C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{2295506B-3F9F-4E76-8FC9-5DC521A01381}"
 EndProject
