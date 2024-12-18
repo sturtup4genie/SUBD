@@ -1,52 +1,30 @@
-#include "pch.h"
+#include <iostream>
 #include "Stack.h"
-#include "CppUnitTest.h"
 
-using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace stack;
 
-namespace UnitTest {
-    TEST_CLASS(StackTest) {
-    public:
-        // Тест: Добавление элементов и проверка top()
-        TEST_METHOD(PushAndTopTest) {
-            Stack stack;
-            stack.push(10);
-            stack.push(20);
-            Assert::AreEqual(20, stack.top());
-        }
+int main() {
+    setlocale(LC_ALL, "Russian");
 
-        // Тест: Удаление верхнего элемента
-        TEST_METHOD(PopTest) {
-            Stack stack;
-            stack.push(10);
-            stack.push(20);
-            stack.pop();
-            Assert::AreEqual(10, stack.top());
-        }
+    Stack stack;
 
-        // Тест: Проверка пустого стека
-        TEST_METHOD(IsEmptyTest) {
-            Stack stack;
-            Assert::IsTrue(stack.isEmpty());
-            stack.push(10);
-            Assert::IsFalse(stack.isEmpty());
-        }
+    // Добавление элементов в стек
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    std::cout << "Стек после добавления элементов: " << stack << "\n";
 
-        // Тест: Исключение при удалении из пустого стека
-        TEST_METHOD(PopEmptyStackTest) {
-            Stack stack;
-            Assert::ExpectException<std::runtime_error>([&stack]() { stack.pop(); },
-                L"Ожидается исключение при удалении из пустого стека.");
-        }
+    // Получение верхнего элемента
+    std::cout << "Верхний элемент: " << stack.top() << "\n";
 
-        // Тест: Преобразование стека в строку
-        TEST_METHOD(ToStringTest) {
-            Stack stack;
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
-            Assert::AreEqual(std::string("1 2 3 "), stack.toString());
-        }
-    };
+    // Удаление верхнего элемента
+    stack.pop();
+    std::cout << "Стек после удаления верхнего элемента: " << stack << "\n";
+
+    // Ввод элементов через поток
+    std::cout << "Введите элементы для стека через пробел (завершите ввод любым символом): ";
+    std::cin >> stack;
+    std::cout << "Стек после ввода: " << stack << "\n";
+
+    return 0;
 }
